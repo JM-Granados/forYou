@@ -208,8 +208,35 @@
 
   </div>
 
-  <!-- Audio -->
-  <audio preload="auto" autoplay="" id="media" src="love.mp3" autoplay preload loop="loop"></audio>
+  <!-- Audio de fondo (continúa desde index.html) -->
+  <audio id="bg-music" autoplay loop>
+    <source src="U2 - With Or Without You (Official Music Video).mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    (function() {
+      var audio = document.getElementById('bg-music');
+      audio.volume = 0.5;
+      
+      // Recuperar posición guardada desde index.html
+      var savedTime = localStorage.getItem('audioTime');
+      if (savedTime) {
+        audio.currentTime = parseFloat(savedTime);
+      }
+      
+      // Guardar posición continuamente
+      setInterval(function() {
+        localStorage.setItem('audioTime', audio.currentTime);
+      }, 500);
+      
+      // Si autoplay falla, reproduce al primer click
+      document.body.addEventListener('click', function() {
+        if (audio.paused) {
+          audio.play();
+        }
+      }, { once: true });
+    })();
+  </script>
 
   <!-- Scripts for Section 4 tree animation -->
   <script type="text/javascript" src="./Love_files/jquery.min.js"></script>

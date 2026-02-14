@@ -50,5 +50,35 @@
     <!-- Footer instruction -->
     <p class="footer-text">Haz clic sobre la carta<br>para leerla.</p>
   </div>
+
+  <!-- Audio de fondo -->
+  <audio id="bg-music" autoplay loop>
+    <source src="U2 - With Or Without You (Official Music Video).mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var audio = document.getElementById('bg-music');
+      audio.volume = 0.5;
+      
+      // Recuperar posición guardada
+      var savedTime = localStorage.getItem('audioTime');
+      if (savedTime) {
+        audio.currentTime = parseFloat(savedTime);
+      }
+      
+      // Guardar posición cada segundo
+      setInterval(function() {
+        localStorage.setItem('audioTime', audio.currentTime);
+      }, 500);
+      
+      // Si autoplay falla, reproduce al primer click
+      document.body.addEventListener('click', function() {
+        if (audio.paused) {
+          audio.play();
+        }
+      }, { once: true });
+    });
+  </script>
 </body>
 </html>
