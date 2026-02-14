@@ -1,0 +1,311 @@
+/* ===== Keyframes for animations ===== */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInRotate {
+  from {
+    opacity: 0;
+    transform: rotate(-180deg) scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+/* ===== Reset & Base ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 20px;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Cormorant Garamond', serif;
+  overflow-x: hidden;
+}
+
+/* ===== Page Container ===== */
+.page {
+  width: 100%;
+  min-height: 100vh;
+  background: url('fondo.jpg') center center / cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+}
+
+/* ===== Title Section ===== */
+.title-section {
+  text-align: center;
+  margin-bottom: 0.625rem;
+  position: relative;
+  line-height: 0.85;
+  animation: fadeInDown 1s ease-out;
+}
+
+.title-happy {
+  font-family: 'Playfair Display', serif;
+  font-weight: 1000;
+  font-size: 6rem;
+  color: #f5deb3;
+  letter-spacing: 0.5rem;
+  text-transform: uppercase;
+  line-height: 1;
+  margin-bottom: -0.938rem;
+  text-shadow: 0.125rem 0.125rem 0.25rem rgba(0,0,0,0.3);
+  background: linear-gradient(180deg, #ffeecb 0%, #e8c98a 50%, #f5deb3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.title-valentine {
+  font-family: 'Great Vibes', cursive;
+  font-size: 9.5rem;
+  color: #fff;
+  font-weight: 400;
+  line-height: 1;
+  text-shadow: 0.125rem 0.188rem 0.375rem rgba(0,0,0,0.3);
+  margin-top: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.title-mylove {
+  font-family: 'Great Vibes', cursive;
+  font-size: 7.5rem;
+  color: #fff;
+  font-weight: 400;
+  line-height: 0.9;
+  text-shadow: 0.125rem 0.188rem 0.375rem rgba(0,0,0,0.3);
+  margin-top: -0.625rem;
+}
+
+/* ===== Decorative swirls (pseudo-elements) ===== */
+.title-section::before,
+.title-section::after {
+  content: '';
+  position: absolute;
+  width: 7.5rem;
+  height: 7.5rem;
+  border: 0.0625rem solid rgba(255, 235, 200, 0.15);
+  border-radius: 50%;
+}
+
+.title-section::before {
+  top: -1.25rem;
+  left: -2.5rem;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  transform: rotate(-30deg);
+}
+
+.title-section::after {
+  bottom: -0.625rem;
+  right: -2.5rem;
+  border-left-color: transparent;
+  border-top-color: transparent;
+  transform: rotate(-30deg);
+}
+
+/* ===== Date ===== */
+.date {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 2.4rem;
+  color: #f5deb3;
+  margin: 1.563rem 0 2.813rem;
+  letter-spacing: 0.125rem;
+  animation: fadeIn 1s ease-out 0.3s both;
+}
+
+/* ===== Envelope Container ===== */
+.envelope-container {
+  cursor: pointer;
+  width: 31.25rem;
+  max-width: 90vw;
+  animation: fadeInScale 1s ease-out 0.6s both;
+}
+
+/* ===== Envelope ===== */
+.envelope {
+  position: relative;
+  width: 100%;
+}
+
+/* Envelope image */
+.envelope-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 0.5rem 1.25rem rgba(0,0,0,0.35));
+}
+
+/* Content overlay on top of envelope */
+.envelope-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1.563rem;
+  z-index: 2;
+}
+
+/* ===== Envelope text ===== */
+.envelope-content {
+  text-align: center;
+  z-index: 1;
+}
+
+.envelope-content.top {
+  margin-top: 5%;
+  margin-bottom: 0;
+}
+
+.envelope-content.bottom {
+  margin-bottom: 0;
+}
+
+.envelope-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #c82e2d;
+  letter-spacing: 0.188rem;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+.envelope-name {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.8rem;
+  color: #c82e2d;
+  line-height: 1.1;
+  margin-top: -3%;
+}
+
+/* ===== Wax Seal ===== */
+.wax-seal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 4;
+  flex-shrink: 0;
+  margin: 1rem 0;
+  animation: fadeInRotate 1s ease-out 0.9s both;
+}
+
+.seal-img {
+  width: 7.188rem;
+  height: auto;
+  filter: drop-shadow(0 0.188rem 0.375rem rgba(0,0,0,0.3));
+}
+
+/* ===== Footer Text ===== */
+.footer-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.4rem;
+  color: #f5deb3;
+  text-align: center;
+  margin-top: 2.188rem;
+  line-height: 1.5;
+  letter-spacing: 0.0625rem;
+  animation: fadeIn 1s ease-out 1.2s both;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 480px) {
+  .title-happy {
+    font-size: 3rem;
+    letter-spacing: 0.313rem;
+  }
+
+  .title-valentine {
+    font-size: 4.8rem;
+  }
+
+  .title-mylove {
+    font-size: 3.8rem;
+  }
+
+  .date {
+    font-size: 1.4rem;
+  }
+
+  .envelope-container {
+    width: 19.375rem;
+  }
+
+  .envelope-name {
+    font-size: 1.8rem;
+    margin-top: -15%;
+  }
+
+  .seal-img {
+    width: 4.375rem;
+  }
+
+  .envelope-label {
+    font-size: 0.65rem;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .title-happy {
+    font-size: 3.8rem;
+  }
+
+  .title-valentine {
+    font-size: 5.8rem;
+  }
+
+  .title-mylove {
+    font-size: 4.5rem;
+  }
+}
